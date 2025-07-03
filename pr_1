@@ -1,0 +1,14 @@
+#include <stdio.h> 
+
+int main() {
+    double t1, t2, t3, t;
+
+    printf("Введiть три значення: ");
+    scanf("%lf %lf %lf", &t1, &t2, &t3);
+
+    t = 1.0 / (1.0/t1 + 1.0/t2 + 1.0/t3);
+    
+    printf("Час, необхiдний для з'дання пирога: %.2f годин\n", t);
+
+    return 0; 
+}
