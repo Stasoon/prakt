@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+
+long long factorial(int n) {
+    long long res = 1;
+    for (int i = 2; i <= n; i++) {
+        res *= i;
+    }
+    return res;
+}
+
+int main() {
+    char word[15];
+    scanf("%s", word);
+
+    int len = strlen(word);
+    long long num_permutations = factorial(len);
+
+    int freq[256] = {0}; 
+    for (int i = 0; i < len; i++) {
+        freq[(unsigned char)word[i]]++;
+    }
+
+    long long denominator = 1;
+    for (int i = 0; i < 256; i++) {
+        if (freq[i] > 1) {
+            denominator *= factorial(freq[i]);
+        }
+    }
+
+    printf("%lld\n", num_permutations / denominator);
+
+    return 0;
+}
